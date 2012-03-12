@@ -1,0 +1,96 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  xmlns:g="urn:import:com.google.gwt.user.client.ui"
+  xmlns:custom="urn:import:com.gwtsecurity.client.ui">
+
+  <ui:style>
+    .errorMessageStyle {
+    	color:red;
+    }
+  </ui:style>
+
+  <g:DockLayoutPanel>
+    <g:north size="60">
+      <g:FlowPanel>
+        <g:Label ui:field="principalLabel"></g:Label>
+        <g:InlineHTML><h1 style="margin:0px;color:#9999FF;">Sample App</h1></g:InlineHTML>
+       </g:FlowPanel>
+    </g:north>
+    <g:center>
+      <g:TabLayoutPanel barHeight="50">
+        <g:tab>
+          <g:header>Informations</g:header>
+          <g:FlowPanel>
+            <g:HTML>
+            <h2>Informations</h2>
+            <h3>Introduction</h3>
+            <div>This demo illustates how one can secure a GWT application using the most common solutions to bond the client side to the servier side :
+            <ul>
+              <li>Raw GWT-RPC</li>
+              <li>GWT-RPC with the help of GWT-SL</li>
+              <li>GWT-RPC with the help of GWT-Dispatch</li>
+              <li>RequestFactory</li>
+            </ul>
+            In all the cases, except the first, services are Spring beans.
+            </div>
+            <h3>Some security considerations</h3>
+            <div>
+            GWT communicates with the server side services using RPC mechanism (GWT-RPC and RequestFactory).
+            Except the particular case, not mentionned here, of RequestBuilder that can be used to access 
+            resources using HTTP verbs and other conventions, every other solutions can't be secured only with Spring Security's URL filtering capabilities.
+            <br/>
+            It's important to add a second and robust layer with the help of method security (using @Secured annotation for instance).
+            </div>
+            </g:HTML>
+          </g:FlowPanel>
+        </g:tab>
+        <g:tab>
+          <g:header>GWT-RPC</g:header>
+          <g:FlowPanel>
+            <g:Label text="Simple GWT RPC Service"></g:Label>
+            <g:Button ui:field="gwtRPCButton">Call Simple Service</g:Button>
+          </g:FlowPanel>
+        </g:tab>
+        <g:tab>
+          <g:header>GWT-SL Security</g:header>
+          <g:FlowPanel>
+            <g:Label text="Arithmetic Service (just add two values)"></g:Label>
+            <g:TextBox ui:field="value1" width="40px"></g:TextBox>
+            <g:Label text="+" width="10px"></g:Label>
+            <g:TextBox ui:field="value2" width="40px"></g:TextBox>
+            <g:Button ui:field="gwtSlButton"> = </g:Button>
+          </g:FlowPanel>
+        </g:tab>
+        <g:tab>
+          <g:header>GWT-Dispatch Security</g:header>
+          <g:FlowPanel>
+            <g:Label text="coming now..."></g:Label>
+            <g:Button ui:field="dispatchButton">Call Increment</g:Button>
+          </g:FlowPanel>
+        </g:tab>
+        <g:tab>
+          <g:header>RequestFactory</g:header>
+          <g:FlowPanel>
+            <g:Label text="Call to a request factory secured service"></g:Label>
+            <g:Label text="First Name: "></g:Label>
+            <g:TextBox ui:field="firstNameField"></g:TextBox>
+            <g:Label text="Last Name: "></g:Label>
+            <g:TextBox ui:field="lastNameField"></g:TextBox>
+            <g:Label text="Email: "></g:Label>
+            <g:TextBox ui:field="emailField"></g:TextBox>
+            <g:Button ui:field="rfButton">Add This User</g:Button>
+          </g:FlowPanel>
+        </g:tab>
+        <g:tab>
+          <g:header>Log out</g:header>
+            <g:FlowPanel>
+              <custom:LogoutButton ui:field="logoutButton"></custom:LogoutButton>
+            </g:FlowPanel>
+        </g:tab>
+      </g:TabLayoutPanel>
+    </g:center>
+    <g:south size="100">
+      <g:Label ui:field="errorLabel" styleName="{style.errorMessageStyle}"></g:Label>
+    </g:south>
+  </g:DockLayoutPanel>
+
+</ui:UiBinder>

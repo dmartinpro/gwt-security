@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gwtsecurity</groupId>
+  <artifactId>gwt-security-reactor</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>GWT Security Reactor</name>
+
+  <properties>
+    <gwtVersion>2.4.0</gwtVersion>
+
+    <java.version>1.6</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <version.frk.spring>3.1.0.RELEASE</version.frk.spring>
+    <version.frk.spring-security>3.1.0.RELEASE</version.frk.spring-security>
+    <version.frk.slf4j>1.6.4</version.frk.slf4j>
+    <version.frk.logback>1.0.0</version.frk.logback>
+  </properties>
+
+  <modules>
+    <module>gwt-security-pack</module>
+    <module>gwt-security-sample</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.gwtsecurity</groupId>
+        <artifactId>gwt-security-pack</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>

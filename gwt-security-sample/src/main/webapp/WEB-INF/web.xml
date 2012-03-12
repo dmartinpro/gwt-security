@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+ version="2.5" metadata-complete="true">
+
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+      classpath*:/META-INF/spring/applicationContext-security.xml
+      classpath*:/META-INF/spring/applicationContext.xml
+      classpath*:/META-INF/spring/applicationContext-gwt-dispatch.xml
+    </param-value>
+  </context-param>
+
+  <!-- Creates the Spring Container shared by all Servlets and Filters -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>handler</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/handler-context.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>rpcServlet</servlet-name>
+    <servlet-class>com.gwtsecurity.sample.server.rpc.SimpleServiceImpl</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>requestFactory</servlet-name>
+    <servlet-class>com.gwtsecurity.sample.server.SpringDelegatorRequestFactoryServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>dispatch</servlet-name>
+    <servlet-class>com.gwtsecurity.server.SpringSecurityDispatchServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>rpcServlet</servlet-name>
+    <url-pattern>/moduleA/rpc</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>handler</servlet-name>
+    <url-pattern>/moduleA/services/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>requestFactory</servlet-name>
+    <url-pattern>/gwtRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>dispatch</servlet-name>
+    <url-pattern>/moduleA/dispatch/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>moduleA.html</welcome-file>
+  </welcome-file-list>
+
+  <session-config>
+    <session-timeout>1</session-timeout>
+  </session-config>
+
+</web-app>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+</head>
+<body>
+
+  <h1>Connection</h1>
+  <form action="j_spring_security_check" method="post">
+    <table>
+      <tr>
+        <td><label for="j_username">Login: </label></td>
+        <td><input type="text" name="j_username" value=""></td>
+      </tr>
+      <tr>
+        <td><label for="j_password">Password: </label></td>
+        <td><input type="text" name="j_password" value=""></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" value="Log me in"></td>
+      </tr>
+    </table>
+    <input type="checkbox" name="_spring_security_remember_me" />
+  </form>
+
+</body>
+</html>

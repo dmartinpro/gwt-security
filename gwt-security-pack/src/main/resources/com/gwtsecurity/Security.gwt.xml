@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="security">
+
+  <inherits name="com.google.gwt.json.JSON"/>
+  <inherits name="com.google.web.bindery.requestfactory.RequestFactory" />
+  <inherits name="com.google.gwt.http.HTTP"/>
+  <!-- <inherits name="com.google.gwt.logging.Logging"/> -->
+  <inherits name="com.google.gwt.user.User" />
+  <inherits name="com.google.gwt.junit.JUnit" />
+
+  <entry-point class="com.gwtsecurity.client.Security" />
+
+  <source path="client" />
+  <source path="shared" />
+
+</module>
