@@ -1,19 +1,24 @@
-Important
+** Important **
 
-In order to import these projects into eclipse, you must have the official GWT plugin for eclipse. Please, see the Google page : http://code.google.com/eclipse/
+In order to import these projects into eclipse, you must have the official GWT plugin for eclipse.
+Please, see the Google page : http://code.google.com/eclipse/
 
-How to set up your project under eclipse :
+** How to set up your project under eclipse **
+
 As easy as ABC : just run these commands :
 mvn clean install eclipse:eclipse
 
-And import the "existing projects into workspace" and voilà!
+And, in your workplace under eclipse : select "Import..." -> "existing projects into workspace" and voilà!
 
+** Run all this stuff **
 
 In order to run the sample app, just right click it, select "Run as"-> "Web application", select "moduleA.html" and choose as a target the following directory : current_project/target/project_name
 
 and browse !
 
-FAQ :
+
+** FAQ **
 
 Q : "The RequestFactory ValidationTool must be run ..."
-A : Just try to package your project (mvn package) and refresh under eclipse. Some files must be generated in order to let RequestFactory do its job.
+A : Just try to package again your project (mvn package) and refresh under eclipse.
+Some files must be generated in order to let RequestFactory do its job.
