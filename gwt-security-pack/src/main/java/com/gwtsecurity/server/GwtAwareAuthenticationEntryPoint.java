@@ -26,7 +26,7 @@ import com.gwtsecurity.shared.SecurityResponseMessage;
 import com.gwtsecurity.shared.SecurityResponseMessageFactory;
 
 /**
- * GWT dedicated entry point that can delegate to a alternative entry point is the request is not GWT-like.
+ * GWT dedicated entry point that can delegate to a alternative entry point if the request is not GWT-like.
  *
  * @author dmartin
  *

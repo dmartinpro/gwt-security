@@ -33,11 +33,11 @@ public class SpringSecurityDispatchServlet extends SpringSecureDispatchServlet {
             SecureSessionValidator sessionValidator = getSessionValidator();
             if ( sessionValidator == null )
                 throw new ServiceException("No session validator found for servlet '" + getServletName() + "' . Please verify your server-side configuration.");
-            
+
             Dispatch dispatch = getDispatch();
             if ( dispatch == null )
                 throw new ServiceException("No dispatch found for servlet '" + getServletName() + "' . Please verify your server-side configuration.");
-            
+
             if ( sessionValidator.isValid( sessionId, getThreadLocalRequest() ) ) {
                 return dispatch.execute( action );
             } else {

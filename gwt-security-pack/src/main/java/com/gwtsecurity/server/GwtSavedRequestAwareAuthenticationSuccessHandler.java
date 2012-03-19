@@ -43,7 +43,7 @@ public class GwtSavedRequestAwareAuthenticationSuccessHandler extends SavedReque
 			@Override
 			public void sendRedirect(HttpServletRequest request,
 					HttpServletResponse response, String s) throws IOException {
-				// do nothing, no redirect to make it working with extjs
+				// do nothing
 
 			}
 		});
